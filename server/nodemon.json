@@ -1,0 +1,5 @@
+{
+  "watch": ["./", "./src", "./dist"],
+  "ext": ".ts, .tsx, .js, .jsx, json",
+  "exec": "ts-node"
+}

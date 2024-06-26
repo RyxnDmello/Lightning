@@ -1,0 +1,30 @@
+{
+  "name": "lightning",
+  "version": "1.0.0",
+  "description": "Efficient and Secure API Testing",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "cls && nodemon ./src/server.ts",
+    "start": "node ./dist/server.js",
+    "build": "rimraf ./dist && npx tsc",
+    "test": "cls && node --version && npm --version && npm list"
+  },
+  "author": "Ryan Nolasco D Mello",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.8",
+    "rimraf": "^5.0.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
+  }
+}
