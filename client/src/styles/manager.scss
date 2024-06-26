@@ -1,0 +1,30 @@
+@import url("./common/fonts.scss");
+
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #0a0a0a;
+  position: relative;
+  z-index: -1;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  grid-template-columns: 25% 50% 25%;
+  justify-content: stretch;
+  align-items: stretch;
+  height: 100dvh;
+  display: grid;
+}
+
+a {
+  text-decoration: none;
+}
