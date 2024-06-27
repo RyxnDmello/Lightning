@@ -1,3 +1,5 @@
+import styles from "./Controller.module.scss";
+
 export default function Controller() {
-  return <div>Controller</div>;
+  return <section id="controller" className={styles.controller}></section>;
 }
