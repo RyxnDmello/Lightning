@@ -72,11 +72,11 @@ input {
 
 .menu {
   border: 2px solid #ffffff25;
+  background-color: #000000;
   grid-template-columns: auto;
   justify-content: stretch;
   pointer-events: none;
   align-items: stretch;
-  translate: 0 20px;
   border-radius: 5px;
   position: absolute;
   overflow: hidden;
@@ -100,17 +100,17 @@ input {
 }
 
 .reveal {
-  animation: reveal ease-in-out forwards;
+  animation: reveal 200ms ease-in-out forwards;
 }
 
 .hide {
-  animation: hide ease-in-out forwards;
+  animation: hide 200ms ease-in-out forwards;
 }
 
 @keyframes reveal {
   0% {
     pointer-events: none;
-    translate: 0 20px;
+    translate: 0 -10px;
     opacity: 0;
   }
 
@@ -130,7 +130,7 @@ input {
 
   100% {
     pointer-events: none;
-    translate: 0 -20px;
+    translate: 0 -10px;
     opacity: 0;
   }
 }
