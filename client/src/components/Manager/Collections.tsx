@@ -1,23 +1,34 @@
-import useFilterType from "../../hooks/collections/useFilterType";
+import useFilterProtocol from "../../hooks/collections/useFilterProtocol";
 import useFilterSearch from "../../hooks/collections/useFilterSearch";
 
 import Search from "./Collections/Search";
+import Folder from "./Collections/Folder";
 
 import styles from "./Collections.module.scss";
 
 export default function Collections() {
-  const { type, menu, onSelectType, onToggleMenu } = useFilterType();
+  const { protocol, menu, onSelectProtocol, onToggleMenu } =
+    useFilterProtocol();
+
   const { onSetPrompt } = useFilterSearch();
 
   return (
     <section id="collection" className={styles.collection}>
-      <Search
-        ref={menu}
-        type={type}
-        onSearch={onSetPrompt}
-        onSelectType={onSelectType}
-        onToggleMenu={onToggleMenu}
-      />
+      <div>
+        <Search
+          ref={menu}
+          protocol={protocol}
+          onSearch={onSetPrompt}
+          onToggleMenu={onToggleMenu}
+          onSelectProtocol={onSelectProtocol}
+        />
+
+        <div className={styles.folders}>
+          {Array.from({ length: 10 }, () => (
+            <Folder name="Folder" />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

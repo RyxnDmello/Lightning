@@ -1,1 +1,1 @@
-export const types = ["GET", "POST", "PUT", "PATCH", "DELETE"];
+export const protocols = ["ALL", "GET", "POST", "PUT", "PATCH", "DELETE"];

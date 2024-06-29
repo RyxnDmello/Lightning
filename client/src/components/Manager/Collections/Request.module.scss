@@ -1,0 +1,17 @@
+@use "./Protocol.module" as Protocol;
+
+.request {
+  justify-content: start;
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+
+  > p:first-of-type {
+    @include Protocol.colors();
+  }
+
+  > p:last-of-type {
+    @include Protocol.default();
+    color: #ffffffaf;
+  }
+}

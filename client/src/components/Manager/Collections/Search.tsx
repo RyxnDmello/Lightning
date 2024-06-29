@@ -1,20 +1,22 @@
 import { forwardRef } from "react";
 
-import { PROTOCOL } from "../../../hooks/collections/useFilterType";
+import { PROTOCOL } from "../../../hooks/collections/useFilterProtocol";
 
-import { types } from "../../../models/Search";
+import { protocols } from "../../../models/Search";
+
+import Protocol from "./Protocol";
 
 import styles from "./Search.module.scss";
 
 interface SearchProps {
-  type: PROTOCOL;
+  protocol: PROTOCOL;
   onSearch: (value: string) => void;
-  onSelectType: (type: PROTOCOL, styles: CSSModuleClasses) => void;
+  onSelectProtocol: (protocol: PROTOCOL, styles: CSSModuleClasses) => void;
   onToggleMenu: (styles: CSSModuleClasses) => void;
 }
 
 const Search = forwardRef<HTMLMenuElement, SearchProps>(
-  ({ type, onSearch, onToggleMenu, onSelectType }, ref) => {
+  ({ protocol, onSearch, onToggleMenu, onSelectProtocol }, ref) => {
     return (
       <div className={styles.search}>
         <input
@@ -24,22 +26,23 @@ const Search = forwardRef<HTMLMenuElement, SearchProps>(
           type="text"
         />
 
-        <p
-          className={styles[`${type.toLowerCase()}`]}
+        <Protocol
+          protocol={protocol}
+          style={styles[`${protocol.toLowerCase()}`]}
           onClick={() => onToggleMenu(styles)}
-        >
-          {type}
-        </p>
+        />
 
         <menu ref={ref} className={styles.menu}>
-          {types.map((type) => (
-            <p
-              onClick={() => onSelectType(type as PROTOCOL, styles)}
-              className={styles[`${type.toLowerCase()}`]}
-            >
-              {type}
-            </p>
-          ))}
+          {protocols.map((p) => {
+            return (
+              p !== protocol && (
+                <Protocol
+                  protocol={p as PROTOCOL}
+                  onClick={() => onSelectProtocol(p as PROTOCOL, styles)}
+                />
+              )
+            );
+          })}
         </menu>
       </div>
     );

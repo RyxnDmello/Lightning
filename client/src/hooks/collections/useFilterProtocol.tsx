@@ -2,8 +2,8 @@ import { useState, useRef } from "react";
 
 export type PROTOCOL = "ALL" | "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
-export default function useFilterType() {
-  const [type, setType] = useState<PROTOCOL>("ALL");
+export default function useFilterProtocol() {
+  const [protocol, setProtocol] = useState<PROTOCOL>("ALL");
   const menu = useRef<HTMLMenuElement>(null);
 
   const onToggleMenu = (styles: CSSModuleClasses) => {
@@ -17,11 +17,11 @@ export default function useFilterType() {
     menu.current?.classList.add(styles.reveal);
   };
 
-  const onSelectType = (type: PROTOCOL, styles: CSSModuleClasses) => {
+  const onSelectProtocol = (type: PROTOCOL, styles: CSSModuleClasses) => {
     menu.current?.classList.remove(styles.reveal);
     menu.current?.classList.add(styles.hide);
-    setType(type);
+    setProtocol(type);
   };
 
-  return { type, menu, onSelectType, onToggleMenu };
+  return { protocol, menu, onSelectProtocol, onToggleMenu };
 }

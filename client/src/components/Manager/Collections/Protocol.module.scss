@@ -1,0 +1,42 @@
+$ALL: #ffffff80;
+$GET: #00ff00;
+$POST: #ffa700;
+$PUT: #0000ff;
+$PATCH: #8000af;
+$DELETE: #af0040;
+
+@mixin default {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+  color: #ffffff65;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+@mixin colors {
+  @include default();
+
+  &.all {
+    color: $ALL;
+  }
+
+  &.get {
+    color: $GET;
+  }
+
+  &.post {
+    color: $POST;
+  }
+
+  &.put {
+    color: $PUT;
+  }
+
+  &.patch {
+    color: $PATCH;
+  }
+
+  &.delete {
+    color: $DELETE;
+  }
+}

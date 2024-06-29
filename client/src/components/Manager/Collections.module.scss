@@ -3,4 +3,19 @@
   justify-content: stretch;
   align-items: start;
   display: grid;
+
+  > div {
+    grid-template-columns: auto;
+    justify-content: stretch;
+    align-items: start;
+    display: grid;
+    gap: 1.5rem;
+  }
+}
+
+.folders {
+  grid-template-columns: auto;
+  justify-content: stretch;
+  align-items: center;
+  display: grid;
 }

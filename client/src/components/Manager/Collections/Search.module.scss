@@ -1,19 +1,7 @@
-$ALL: #ffffff80;
-$GET: #00ff00;
-$POST: #ffa700;
-$PUT: #0000ff;
-$PATCH: #8000af;
-$DELETE: #af0040;
+@use "./Protocol.module" as Protocol;
 
 input {
   border: none;
-}
-
-@mixin type {
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 0.5px;
-  font-weight: 400;
-  cursor: pointer;
 }
 
 .search {
@@ -40,33 +28,9 @@ input {
   }
 
   > p {
-    @include type();
-
+    @include Protocol.colors();
     margin-right: 1rem;
-
-    &.all {
-      color: $ALL;
-    }
-
-    &.get {
-      color: $GET;
-    }
-
-    &.post {
-      color: $POST;
-    }
-
-    &.put {
-      color: $PUT;
-    }
-
-    &.patch {
-      color: $PATCH;
-    }
-
-    &.delete {
-      color: $DELETE;
-    }
+    font-weight: 400;
   }
 }
 
@@ -83,14 +47,13 @@ input {
   right: 0.65rem;
   display: grid;
   opacity: 0;
+  z-index: 1;
   top: 3rem;
 
   > p {
-    @include type();
-
+    @include Protocol.default();
     transition: color 300ms, background-color 300ms;
     padding: 0.25rem 1rem 0.25rem 0.5rem;
-    color: #ffffff65;
 
     &:hover {
       background-color: #ffffff10;
