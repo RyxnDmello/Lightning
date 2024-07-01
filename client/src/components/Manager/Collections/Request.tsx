@@ -1,5 +1,8 @@
 import { PROTOCOL } from "../../../hooks/collections/useFilterProtocol";
 
+import DeleteIcon from "../../../images/request/delete.svg";
+import RenameIcon from "../../../images/request/rename.svg";
+
 import styles from "./Request.module.scss";
 
 interface RequestProps {
@@ -10,8 +13,15 @@ interface RequestProps {
 export default function Request({ protocol, name }: RequestProps) {
   return (
     <div className={styles.request}>
-      <p className={styles[protocol.toLowerCase()]}>{protocol}</p>
-      <p>{name}</p>
+      <div>
+        <p className={styles[protocol.toLowerCase()]}>{protocol}</p>
+        <p>{name}</p>
+      </div>
+
+      <div>
+        <img src={RenameIcon} />
+        <img src={DeleteIcon} />
+      </div>
     </div>
   );
 }

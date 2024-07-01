@@ -1,7 +1,7 @@
 .folder {
   grid-template-columns: auto;
   justify-content: stretch;
-  padding: 0.5rem 1rem;
+  padding: 0.35rem 1rem;
   align-items: stretch;
   display: grid;
   gap: 0.25rem;
@@ -80,15 +80,16 @@
     align-items: center;
     overflow: hidden;
     display: grid;
+    gap: 0.25rem;
   }
 }
 
 .expand {
-  animation: expand 450ms ease-in-out forwards;
+  animation: expand 250ms ease-in-out forwards;
 }
 
 .collapse {
-  animation: expand 450ms ease-in-out forwards;
+  animation: collapse 250ms ease-in-out forwards;
 }
 
 @keyframes expand {

@@ -24,9 +24,11 @@ export default function Collections() {
         />
 
         <div className={styles.folders}>
-          {Array.from({ length: 10 }, () => (
-            <Folder name="Folder" />
-          ))}
+          <div>
+            {Array.from({ length: 10 }, () => (
+              <Folder name={"Folder"} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
