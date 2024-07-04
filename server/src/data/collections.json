@@ -1,0 +1,148 @@
+{
+  "collections": [
+    {
+      "_id": "C01",
+      "name": "Vibeout",
+      "requests": [
+        {
+          "_id": "R01",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "GET",
+          "name": "Fetch All Chats"
+        },
+        {
+          "_id": "R02",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "POST",
+          "name": "Add A Chat"
+        },
+        {
+          "_id": "R03",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "PUT",
+          "name": "Update A Chat"
+        },
+        {
+          "_id": "R04",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "PATCH",
+          "name": "Update A Chat"
+        },
+        {
+          "_id": "R05",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "DELETE",
+          "name": "Delete A Chat"
+        }
+      ]
+    },
+    {
+      "_id": "C02",
+      "name": "CloudSense",
+      "requests": [
+        {
+          "_id": "R01",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "GET",
+          "name": "Fetch All Clouds"
+        },
+        {
+          "_id": "R02",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "POST",
+          "name": "Add A Clouds"
+        },
+        {
+          "_id": "R03",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "PUT",
+          "name": "Update All Clouds"
+        },
+        {
+          "_id": "R04",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "PATCH",
+          "name": "Update A Cloud"
+        },
+        {
+          "_id": "R05",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "DELETE",
+          "name": "Delete A Cloud"
+        }
+      ]
+    },
+    {
+      "_id": "C03",
+      "name": "TaskTonic",
+      "requests": [
+        {
+          "_id": "R01",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "GET",
+          "name": "Fetch All Tasks"
+        },
+        {
+          "_id": "R02",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "POST",
+          "name": "Add A Task"
+        },
+        {
+          "_id": "R03",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "PUT",
+          "name": "Update All Tasks"
+        },
+        {
+          "_id": "R04",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "PATCH",
+          "name": "Update A Task"
+        },
+        {
+          "_id": "R05",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "DELETE",
+          "name": "Delete A Task"
+        }
+      ]
+    },
+    {
+      "_id": "C04",
+      "name": "EveShark",
+      "requests": [
+        {
+          "_id": "R01",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "GET",
+          "name": "Fetch All Users"
+        },
+        {
+          "_id": "R02",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "POST",
+          "name": "Add A User"
+        },
+        {
+          "_id": "R03",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "PUT",
+          "name": "Update All Users"
+        },
+        {
+          "_id": "R04",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "PATCH",
+          "name": "Update A User"
+        },
+        {
+          "_id": "R05",
+          "url": "http://localhost:8080/api/chats",
+          "protocol": "DELETE",
+          "name": "Delete A User"
+        }
+      ]
+    }
+  ]
+}

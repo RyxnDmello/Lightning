@@ -1,3 +1,5 @@
+import { Socket } from "socket.io-client";
+
 import useFilterProtocol from "../../hooks/collections/useFilterProtocol";
 import useFilterSearch from "../../hooks/collections/useFilterSearch";
 
@@ -5,8 +7,15 @@ import Search from "./Collections/Search";
 import Folder from "./Collections/Folder";
 
 import styles from "./Collections.module.scss";
+import useCollections from "../../hooks/collections/useCollections";
 
-export default function Collections() {
+interface CollectionsProps {
+  socket: Socket;
+}
+
+export default function Collections({ socket }: CollectionsProps) {
+  const { collections } = useCollections(socket);
+
   const { protocol, menu, onSelectProtocol, onToggleMenu } =
     useFilterProtocol();
 
@@ -25,8 +34,8 @@ export default function Collections() {
 
         <div className={styles.folders}>
           <div>
-            {Array.from({ length: 10 }, () => (
-              <Folder name={"Folder"} />
+            {collections.map((folder) => (
+              <Folder key={folder._id} {...folder} protocol={protocol} />
             ))}
           </div>
         </div>

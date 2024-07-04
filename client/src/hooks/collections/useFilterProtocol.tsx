@@ -1,9 +1,9 @@
 import { useState, useRef } from "react";
 
-export type PROTOCOL = "ALL" | "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+import PROTOCOL from "../../types/Protocol";
 
 export default function useFilterProtocol() {
-  const [protocol, setProtocol] = useState<PROTOCOL>("ALL");
+  const [protocol, setProtocol] = useState<"ALL" | PROTOCOL>("ALL");
   const menu = useRef<HTMLMenuElement>(null);
 
   const onToggleMenu = (styles: CSSModuleClasses) => {

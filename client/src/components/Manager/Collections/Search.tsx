@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 
-import { PROTOCOL } from "../../../hooks/collections/useFilterProtocol";
+import PROTOCOL from "../../../types/Protocol";
 
 import { protocols } from "../../../models/Search";
 
@@ -9,7 +9,7 @@ import Protocol from "./Protocol";
 import styles from "./Search.module.scss";
 
 interface SearchProps {
-  protocol: PROTOCOL;
+  protocol: "ALL" | PROTOCOL;
   onSearch: (value: string) => void;
   onSelectProtocol: (protocol: PROTOCOL, styles: CSSModuleClasses) => void;
   onToggleMenu: (styles: CSSModuleClasses) => void;
@@ -33,12 +33,13 @@ const Search = forwardRef<HTMLMenuElement, SearchProps>(
         />
 
         <menu ref={ref} className={styles.menu}>
-          {protocols.map((p) => {
+          {protocols.map((_) => {
             return (
-              p !== protocol && (
+              _ !== protocol && (
                 <Protocol
-                  protocol={p as PROTOCOL}
-                  onClick={() => onSelectProtocol(p as PROTOCOL, styles)}
+                  key={_}
+                  protocol={_ as PROTOCOL}
+                  onClick={() => onSelectProtocol(_ as PROTOCOL, styles)}
                 />
               )
             );

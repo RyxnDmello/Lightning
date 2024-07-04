@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export default function useFolder() {
+export default function useToggleFolder() {
   const folder = useRef<HTMLDivElement>(null);
 
   const onToggleFolder = (styles: CSSModuleClasses) => {

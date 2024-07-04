@@ -1,8 +1,8 @@
-import { PROTOCOL } from "../../../hooks/collections/useFilterProtocol";
+import PROTOCOL from "../../../types/Protocol";
 
 interface ProtocolProps {
   style?: string;
-  protocol: PROTOCOL;
+  protocol: "ALL" | PROTOCOL;
   onClick: () => void;
 }
 

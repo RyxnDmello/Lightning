@@ -1,4 +1,4 @@
-import { PROTOCOL } from "../../../hooks/collections/useFilterProtocol";
+import PROTOCOL from "../../../types/Protocol";
 
 import DeleteIcon from "../../../images/request/delete.svg";
 import RenameIcon from "../../../images/request/rename.svg";

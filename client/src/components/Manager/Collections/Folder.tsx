@@ -1,4 +1,8 @@
-import useFolder from "../../../hooks/collections/useFolder";
+import useToggleFolder from "../../../hooks/collections/useToggleFolder";
+
+import PROTOCOL from "../../../types/Protocol";
+
+import { Request as _ } from "../../../interfaces/Collection";
 
 import FolderIcon from "../../../images/folder/folder.svg";
 import RenameIcon from "../../../images/folder/rename.svg";
@@ -11,10 +15,12 @@ import styles from "./Folder.module.scss";
 
 interface FolderProps {
   name: string;
+  requests: _[];
+  protocol: "ALL" | PROTOCOL;
 }
 
-export default function Folder({ name }: FolderProps) {
-  const { folder, onToggleFolder } = useFolder();
+export default function Folder({ name, requests, protocol }: FolderProps) {
+  const { folder, onToggleFolder } = useToggleFolder();
 
   return (
     <div className={styles.folder}>
@@ -33,9 +39,10 @@ export default function Folder({ name }: FolderProps) {
 
       <div ref={folder} className={styles.requests}>
         <div>
-          {Array.from({ length: 5 }, () => (
-            <Request protocol={"ALL"} name="Request" />
-          ))}
+          {requests.map((request) => {
+            if (protocol !== "ALL" && protocol !== request.protocol) return;
+            return <Request key={request._id} {...request} />;
+          })}
         </div>
       </div>
     </div>
