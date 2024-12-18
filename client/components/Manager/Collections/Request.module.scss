@@ -1,0 +1,54 @@
+@use "./Protocol.module" as Protocol;
+
+.request {
+  justify-content: space-between;
+  grid-auto-flow: column;
+  align-items: center;
+  display: grid;
+
+  &:hover > div:first-of-type > p:last-of-type {
+    color: #fff;
+  }
+
+  &:hover > div:last-of-type > img {
+    opacity: 0.65;
+  }
+
+  > div:first-of-type {
+    justify-content: start;
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+
+    > p:first-of-type {
+      @include Protocol.colors();
+      font-size: 0.85rem;
+      width: 50px;
+    }
+    
+    > p:last-of-type {
+      @include Protocol.default();
+      transition: color 250ms;
+      font-size: 0.85rem;
+      color: #ffffffaf;
+    }
+  }
+
+  > div:last-of-type {
+    justify-content: end;
+    align-items: center;
+    display: flex;
+
+    > img {
+      transition: opacity 250ms;
+      cursor: pointer;
+      height: auto;
+      width: 20px;
+      opacity: 0;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

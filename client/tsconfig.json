@@ -1,11 +1,43 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "alwaysStrict": true,
+    "incremental": true,
+    "allowJs": true,
+    "strict": true,
+    "noEmit": true,
+
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "plugins": [{ "name": "next" }],
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "target": "ES2023",
+    "jsx": "preserve",
+    "baseUrl": ".",
+
+    "paths": {
+      "@components/*": ["./components/*"],
+      "@contexts/*": ["./contexts/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@interfaces/*": ["./interfaces/*"],
+      "@models/*": ["./models/*"],
+      "@schema/*": ["./schema/*"],
+      "@styles/*": ["./styles/*"],
+      "@public/*": ["./public/*"],
+      "@utils/*": ["./utils/*"],
+      "@lib/*": ["./lib/*"],
+      "@/*": ["./*"]
     }
-  ]
+  },
+  "include": [
+    ".next/types/**/*.ts",
+    "next.config.mjs",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": ["node_modules"]
 }

@@ -1,0 +1,31 @@
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  grid-template-rows: 80px 1fr;
+  grid-template-columns: auto;
+  justify-content: stretch;
+  align-items: stretch;
+  position: relative;
+  display: grid;
+  z-index: -1;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  grid-template-columns: 25% 50% 25%;
+  justify-content: stretch;
+  align-items: stretch;
+  display: grid;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,9 +1,21 @@
+# NextJs Directories
+/.next/
+/out/
+
+# Vercel
+.vercel
+
+# Production
+/build
+
+# Testing
+/coverage
+
 # React & NodeJs Directories
 node_modules
 dist-ssr
 dist
 *.local
-.env
 
 # React & NodeJs Logs
 logs
@@ -13,6 +25,27 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+
+# Local Files
+.env*.local
+.env
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Typescript Dependencies
+*.tsbuildinfo
+next-env.d.ts
+
+# Miscellaneous
+.DS_Store
+*.pem
+
+# Package Manager Dependencies
+.pnp.js
+.yarn/install-state.gz
 
 # VSCode Directories & Files
 .vscode/*
