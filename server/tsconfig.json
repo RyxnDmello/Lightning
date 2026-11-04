@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": true,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+
+    "resolvePackageJsonExports": true,
+    "resolvePackageJsonImports": true,
+    "resolveJsonModule": true,
+
+    "alwaysStrict": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "module": "Preserve",
+    "target": "ESNext",
+
+    "lib": ["ESNext"],
+    "types": ["bun"],
+
+    "paths": {
+      "@validators/*": ["./src/validators/*"],
+      "@constants/*": ["./src/constants/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}
