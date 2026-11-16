@@ -1,0 +1,10 @@
+{
+  "name": "lightning",
+  "scripts": {
+    "docker:up": "docker compose --env-file ./server/.env up -d",
+    "docker:stop": "docker compose --env-file ./server/.env stop",
+    "docker:down": "docker compose --env-file ./server/.env down",
+    "docker:build": "docker compose --env-file ./server/.env build",
+    "docker:build:clean": "docker compose --env-file ./server/.env build --no-cache"
+  }
+}

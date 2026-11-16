@@ -1,0 +1,60 @@
+# ========================================================== #
+# ====================[ DOCKER COMPOSE ]==================== #
+# ========================================================== #
+
+services:
+  # ================================================== #
+  # ====================[ SERVER ]==================== #
+  # ================================================== #
+
+  server:
+    build:
+      context: ./server
+    ports:
+      - "127.0.0.1:${PORT:-8080}:${PORT:-8080}"
+    env_file:
+      - ./server/.env
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - lightning
+
+  # ================================================== #
+  # ===================[ MONGODB ]==================== #
+  # ================================================== #
+
+  mongodb:
+    image: mongodb/mongodb-community-server:8.0-ubi9-slim
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USERNAME:?Required}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD:?Required}
+    ports:
+      - "127.0.0.1:${MONGODB_PORT:-27017}:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test:
+        ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand({ ping: 1 })"]
+      retries: ${MONGODB_HEALTHCHECK_RETRIES:-10}
+      timeout: ${MONGODB_HEALTHCHECK_TIMEOUT:-5s}
+      interval: ${MONGODB_HEALTHCHECK_INTERVAL:-10s}
+      start_period: ${MONGODB_HEALTHCHECK_START_PERIOD:-20s}
+    networks:
+      - lightning
+
+# ========================================================== #
+# =======================[ NETWORKS ]======================= #
+# ========================================================== #
+
+networks:
+  lightning:
+    name: lightning
+    driver: bridge
+
+# ========================================================== #
+# =======================[ VOLUMES ]======================== #
+# ========================================================== #
+
+volumes:
+  mongodb_data:

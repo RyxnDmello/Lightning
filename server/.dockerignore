@@ -1,0 +1,42 @@
+
+# ========================================================== #
+# =====================[ DOCKERIGNORE ]===================== #
+# ========================================================== #
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Version Control
+.git/
+.gitignore
+
+# Editor
+.idea/
+.vscode/
+
+# Builds
+dist/
+build/
+coverage/
+
+# Logs
+*.log
+logs/
+
+# Temps
+tmp/
+temp/
+*.tmp
+
+# Docker
+Dockerfile*
+compose.yml
+compose.yaml
+.dockerignore
+docker-compose*.yml
+docker-compose*.yaml
