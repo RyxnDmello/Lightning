@@ -11,9 +11,17 @@ const globalValidatorSchema = z.strictObject(
   "Global Environment Variables Are Missing",
 );
 
+const mongodbValidatorSchema = z.strictObject(
+  {
+    MONGODB_URI: z.string("MongoDB URI Must Be A Valid URI"),
+  },
+  "MongoDB Environment Variables Are Missing",
+);
+
 const envValidatorSchema = z.strictObject(
   {
     GLOBAL: globalValidatorSchema,
+    MONGODB: mongodbValidatorSchema,
   },
   "Environment Variables Are Required",
 );

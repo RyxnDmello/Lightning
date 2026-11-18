@@ -7,7 +7,9 @@
   },
   "dependencies": {
     "@hono/zod-validator": "^0.9.1",
+    "date-fns": "^4.4.0",
     "hono": "^4.13.16",
+    "mongoose": "^9.12.1",
     "zod": "^4.6.7"
   },
   "devDependencies": {

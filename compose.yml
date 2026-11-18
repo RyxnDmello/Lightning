@@ -17,38 +17,30 @@ services:
     depends_on:
       mongodb:
         condition: service_healthy
-    networks:
-      - lightning
 
   # ================================================== #
   # ===================[ MONGODB ]==================== #
   # ================================================== #
 
   mongodb:
-    image: mongodb/mongodb-community-server:8.0-ubi9-slim
+    image: mongodb/mongodb-atlas-local:8.0
+    hostname: mongodb
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USERNAME:?Required}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD:?Required}
+      MONGODB_INITDB_ROOT_USERNAME: ${MONGODB_USERNAME:?Required}
+      MONGODB_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD:?Required}
     ports:
       - "127.0.0.1:${MONGODB_PORT:-27017}:27017"
     volumes:
       - mongodb_data:/data/db
-    healthcheck:
-      test:
-        ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand({ ping: 1 })"]
-      retries: ${MONGODB_HEALTHCHECK_RETRIES:-10}
-      timeout: ${MONGODB_HEALTHCHECK_TIMEOUT:-5s}
-      interval: ${MONGODB_HEALTHCHECK_INTERVAL:-10s}
-      start_period: ${MONGODB_HEALTHCHECK_START_PERIOD:-20s}
-    networks:
-      - lightning
+      - mongodb_search:/data/mongot
+      - mongodb_config:/data/configdb
 
 # ========================================================== #
 # =======================[ NETWORKS ]======================= #
 # ========================================================== #
 
 networks:
-  lightning:
+  default:
     name: lightning
     driver: bridge
 
@@ -58,3 +50,5 @@ networks:
 
 volumes:
   mongodb_data:
+  mongodb_search:
+  mongodb_config:

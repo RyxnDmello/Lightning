@@ -13,6 +13,9 @@ try {
     GLOBAL: {
       PORT: _.PORT,
     },
+    MONGODB: {
+      MONGODB_URI: _.MONGODB_URI,
+    },
   });
 } catch (error) {
   if (error instanceof ZodError) {
